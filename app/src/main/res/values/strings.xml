@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">XMB Live Wallpaper</string>
+    <string name="wallpaper">XMB</string>
+    <string name="app_description"></string>
+
+    <string name="prefs_color">Color</string>
+    <string name="prefs_opacity">Opacity</string>
+    <string name="prefs_opacity_summary">%d%%</string>
+
+    <string name="color_silk">Silk</string>
+    <string name="color_turquoise">Turquoise</string>
+    <string name="color_emerald">Emerald</string>
+    <string name="color_sapphire">Sapphire</string>
+    <string name="color_gold">Gold</string>
+    <string name="color_ruby">Ruby</string>
+    <string name="color_amethyst">Amethyst</string>
+    <string name="color_amber">Amber</string>
+    <string name="style_cosmic">Cosmic Flow</string>
+    <string name="style_xmb">XMB</string>
+</resources>

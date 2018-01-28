@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="color_values">
+        <item>686b6c</item>
+        <item>1a7373</item>
+        <item>146532</item>
+        <item>2559b3</item>
+        <item>a07800</item>
+        <item>740f30</item>
+        <item>760687</item>
+        <item>c07228</item>
+    </string-array>
+    <string-array name="color_entries">
+        <item>@string/color_silk</item>
+        <item>@string/color_turquoise</item>
+        <item>@string/color_emerald</item>
+        <item>@string/color_sapphire</item>
+        <item>@string/color_gold</item>
+        <item>@string/color_ruby</item>
+        <item>@string/color_amethyst</item>
+        <item>@string/color_amber</item>
+    </string-array>
+</resources>
