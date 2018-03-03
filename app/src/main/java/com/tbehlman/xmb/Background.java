@@ -1,5 +1,6 @@
 package com.tbehlman.xmb;
 
+import com.tbehlman.ByteTexture;
 import com.tbehlman.Drawable;
 import com.tbehlman.VertexBufferObject;
 
@@ -12,8 +13,10 @@ public class Background extends Drawable {
     protected final Settings settings;
 
     protected VertexBufferObject vertexBuffer;
+    protected ByteTexture bayerTexture;
 
     protected final float[] backgroundColor = new float[3];
+    protected final float[] resolution = new float[2];
 
     public Background(Settings settings) {
         super();
@@ -39,6 +42,23 @@ public class Background extends Drawable {
                 +1.0f, +1.0f,
                 -1.0f, +1.0f
         });
+        bayerTexture = new ByteTexture(8, 8, new char[]{
+                  0, 128,  32, 160,   8, 136,  40, 168,
+                192,  64, 224,  96, 200,  72, 232, 104,
+                 48, 176,  16, 144 , 56, 184,  24, 152,
+                240, 112, 208,  80, 248, 120, 216,  88,
+                 12, 140,  44, 172,   4, 132,  36, 164,
+                204,  76, 236, 108, 196,  68, 228, 100,
+                 60, 188,  28, 156,  52, 180,  20, 148,
+                252, 124, 220,  92, 244, 116, 212,  84
+        });
+    }
+
+    @Override
+    public void onResize(int width, int height) {
+        super.onResize(width, height);
+        resolution[0] = width;
+        resolution[1] = height;
     }
 
     @Override
@@ -47,7 +67,7 @@ public class Background extends Drawable {
 
         final int positionHandle = getAttribute("position");
         glEnableVertexAttribArray(positionHandle);
-        glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer.getIndex());
+        vertexBuffer.bind();
         glVertexAttribPointer(positionHandle, 2, GL_FLOAT, false, 0, 0);
 
         float[] color = settings.getColor();
@@ -58,6 +78,8 @@ public class Background extends Drawable {
         backgroundColor[1] = color[1] * (float) brightness;
         backgroundColor[2] = color[2] * (float) brightness;
         glUniform3fv(getUniform("color"), 1, backgroundColor, 0);
+        glUniform2fv(getUniform("resolution"), 0, resolution, 0);
+        bayerTexture.bind(GL_TEXTURE0, 0, getUniform("bayerTexture"));
 
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     }
