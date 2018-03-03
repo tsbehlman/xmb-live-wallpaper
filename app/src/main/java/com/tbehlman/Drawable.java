@@ -4,9 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 
 import android.support.annotation.CallSuper;
 
@@ -40,11 +37,6 @@ public abstract class Drawable {
     @CallSuper
     public void onDestroy() {
 
-    }
-
-    protected Buffer createBuffer(float[] floats) {
-        return ByteBuffer.allocateDirect(floats.length * 4)
-                .order(ByteOrder.nativeOrder()).asFloatBuffer().put(floats).position(0);
     }
 
     protected int getAttribute(String name) {
