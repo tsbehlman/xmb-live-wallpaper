@@ -61,4 +61,11 @@ public class Background extends Drawable {
 
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        vertexBuffer.destroy();
+        bayerTexture.destroy();
+    }
 }
