@@ -20,12 +20,12 @@ public class VertexBufferObject {
                 .order(ByteOrder.nativeOrder()).asFloatBuffer().put(floats).position(0);
     }
 
+    public void bind() {
+        glBindBuffer(GL_ARRAY_BUFFER, bufferIndices[0]);
+    }
+
     public void destroy() {
         glDeleteBuffers(1, bufferIndices, 0);
         bufferIndices[0] = 0;
-    }
-
-    public int getIndex() {
-        return bufferIndices[0];
     }
 }

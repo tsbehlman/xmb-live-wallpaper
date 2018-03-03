@@ -67,7 +67,7 @@ public class Particles extends Drawable {
 
         final int seedHandle = getAttribute("seed");
         glEnableVertexAttribArray(seedHandle);
-        glBindBuffer(GL_ARRAY_BUFFER, seedBuffer.getIndex());
+        seedBuffer.bind();
         glVertexAttribPointer(seedHandle, 3, GL_FLOAT, false, 0, 0);
 
         glUniform1f(getUniform("time"), timer.getTime());

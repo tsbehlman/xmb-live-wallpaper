@@ -81,7 +81,7 @@ public class Flow extends Drawable {
 
         final int positionHandle = getAttribute("position");
         glEnableVertexAttribArray(positionHandle);
-        glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer.getIndex());
+        vertexBuffer.bind();
         glVertexAttribPointer(positionHandle, 2, GL_FLOAT, false, 0, 0);
 
         glUniform1f(getUniform("time"), timer.getTime());
